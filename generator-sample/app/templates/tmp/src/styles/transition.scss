@@ -1,0 +1,194 @@
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite
+}
+
+// 透明度渐变过渡
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    height: 0%;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    height: 100%;
+}
+
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(p2r(-6))
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(p2r(6))
+    }
+}
+
+.shake {
+    animation-name: shake
+}
+
+
+// 鼠标hover的是有个hover特效
+//  <span
+// class="wave_box"
+// @mousedown="showHover1 = true"
+// @mouseup="showHover1 = false"
+// @mouseout="showHover1 = false"
+// @mouseenter="showHover1 = true"
+// >
+// <span class="wave"></span>
+// </span>
+
+.wave_box {
+    width: p(348);
+    height: p(58);
+    position: absolute;
+    top: p(6);
+    left: p(5);
+    display: inline-block;
+    border-radius: p(10);
+    overflow: hidden;
+    z-index: 19;
+}
+
+.wave {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: p(-200);
+    margin-top: p(-200);
+    background: #fff;
+    width: p(400);
+    height: p(400);
+    display: inline-block;
+    transform: scale(0.01);
+    opacity: 0;
+}
+
+// 直播状态，那三个动来动去的条子
+// <span class="isbos" >
+// <span class="is_item ani1"></span>
+// <span class="is_item ani2"></span>
+// <span class="is_item ani3"></span>
+// </span>
+.isbos {
+    display: inline-block;
+    position: absolute;
+    left: p(-28);
+    bottom: p(-5);
+
+    span {
+        display: inline-block;
+    }
+
+    .is_item {
+        width: p(3);
+        height: p(10);
+        background: #00ff00;
+        margin-right: p(2);
+
+        &:nth-child(2) {
+            height: p(14);
+        }
+
+        &:nth-child(3) {
+            height: p(16);
+        }
+    }
+
+    .ani1 {
+        animation: ani1 .5s infinite ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @keyframes ani1 {
+        from {
+            height: p(2);
+        }
+
+        to {
+            height: p(10);
+        }
+    }
+
+    .ani2 {
+        animation: ani2 .3s infinite ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @keyframes ani2 {
+        from {
+            height: p(2);
+        }
+
+        to {
+            height: p(14);
+        }
+    }
+
+    .ani3 {
+        animation: ani3 .4s infinite ease-in-out;
+        animation-direction: alternate;
+    }
+
+    @keyframes ani3 {
+        from {
+            height: p(2);
+        }
+
+        to {
+            height: p(16);
+        }
+    }
+}
+
+// 只有chrome 浏览器才有这特效
+//  isChrome: navigator.userAgent.toLowerCase().indexOf("chrome") != -1
+//  &:hover .flip {
+//     background-clip: text;
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     animation: animate 2s infinite;
+//     background-image: linear-gradient(to right, #fff, #22836a, #fff, #22836a);
+//   }
+
+
+//   @keyframes animate {
+//     from {
+//       background-position: -100px
+//     }
+
+//     to {
+//       background-position: 100px
+//     }
+//   }

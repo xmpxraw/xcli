@@ -1,0 +1,5 @@
+@import "~@styles/funs";
+// 函数一个p就够了
+@function p($px) {
+  @return $px/75*1rem;
+}

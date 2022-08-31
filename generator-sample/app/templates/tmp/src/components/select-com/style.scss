@@ -1,0 +1,61 @@
+@import '~@styles/funs.scss';
+
+// 函数一个p就够了
+@function p($px) {
+  @return $px/75*1rem;
+}
+
+.page_select {
+  span {
+    display: inline-block;
+  }
+  .select {
+    width: p(300);
+    height: p(60);
+    line-height: p(60);
+    cursor: pointer;
+    color: #fff;
+    font-size: p(24);
+    user-select: none;
+    position: relative;
+
+    &_item {
+      background: hotpink;
+      width: p(300);
+      height: p(60);
+    }
+
+    &_pos {
+      display: inline-block;
+      background: hotpink;
+      position: absolute;
+      top: p(65);
+      z-index: 19;
+      left: 0;
+      // border: 1px blue solid;
+      width: p(300);
+      box-sizing: border-box;
+      &_item {
+        display: inline-block;
+        width: 100%;
+        height: p(60);
+        background: hotpink;
+        box-sizing: border-box;
+        &:not(:first-child) {
+          border-top: 1px blue solid;
+        }
+        &:hover {
+          background: blue;
+        }
+        &.disabled {
+          background: gray;
+          cursor: no-drop;
+        }
+        &.active {
+          background: red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+@function p2r($px) {
+    @return $px/75*1rem;
+}
+
+@function p2x($px) {
+    @return $px/2*1px;
+}
+
+@function px($px) {
+    @return $px * 1px;
+
+}
+
+@mixin wh($width, $height) {
+    width: p2r($width);
+    height: p2r($height);
+}
+
+@mixin bg($url, $size:100% auto, $position: center center, $repeat: no-repeat) {
+    background-image: url($url);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}
+
+@mixin wh-bg($width, $height, $url, $size:100% auto, $position: center center, $repeat: no-repeat) {
+    width: p2r($width);
+    height: p2r($height);
+    background-image: url($url);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}
+
+@mixin scrollbar($color:#b66000) {
+    -webkit-overflow-scrolling: touch;
+    /* Firefox隐藏滚动条 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        width: p2r(6);
+        border-radius: p2r(4);
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: p2r(6);
+        border-radius: p2r(4);
+        background-color: $color;
+    }
+}
+
+@mixin text-ell() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@function p($px) {
+    @return $px/75*1rem;
+}
+
+
+// * 溢出省略号
+// * @param {Number} 行数
+@mixin diandiandian($rowCount: 1) {
+    @if $rowCount <=1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @else {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: $rowCount;
+        -webkit-box-orient: vertical;
+    }
+}
+
+// * 等边三角形
+// * @param {String} 尺寸
+// * @param {Color} 颜色
+// * @param {String} 方向
+@mixin triangle($size: 5px, $color: rgba(0, 0, 0, 0.6), $dir: bottom) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+
+    @if (bottom==$dir) {
+        border-width: $size $size 0 $size;
+        border-color: $color transparent transparent transparent;
+    }
+
+    @else if (top==$dir) {
+        border-width: 0 $size $size $size;
+        border-color: transparent transparent $color transparent;
+    }
+
+    @else if (right==$dir) {
+        border-width: $size 0 $size $size;
+        border-color: transparent transparent transparent $color;
+    }
+
+    @else if (left==$dir) {
+        border-width: $size $size $size 0;
+        border-color: transparent $color transparent transparent;
+    }
+}
+
+// * 文本不换行
+// * 使用： @include no-wrap()
+@mixin noWrap() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// * 扩展点击区域(多用于移动端)
+// * 使用： @include extend-click()
+@mixin extendClick() {
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+
+
+//  文本居中
+//  使用： @include center(30px)
+@mixin center($height:100%) {
+    height: $height;
+    line-height: $height;
+    text-align: center
+}
+
+// 背景渐变色
+@mixin colorGradient($color1, $color2, $default, $type: "l2r") {
+    $dir: right;
+    $deg: 0;
+
+    @if $type=="t2b" {
+        $dir: bottom;
+        $deg: -90deg;
+    }
+
+    @else if $type=="lt2rb" {
+        $dir: right bottom;
+        $deg: -45deg;
+    }
+
+    background: $default;
+    background: -webkit-linear-gradient($deg, $color1 0%, $color2 100%);
+    background: -moz-linear-gradient($deg, $color1 0%, $color2 100%);
+    background: -o-linear-gradient($deg, $color1 0%, $color2 100%);
+    background: -ms-linear-gradient($deg, $color1 0%, $color2 100%);
+    background: linear-gradient(to $dir, $color1, $color2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$color1}", endColorstr="#{$color2}", GradientType=0); // /*IE9以下*/ 仅支持从上到下或从左到右
+}
+
+// ios 滚动增加顺滑度
+@mixin iosScroll() {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin mask($a: 0.8) {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba($color: #000000, $alpha: $a);
+    z-index: 100;
+}
+
+@mixin center2($height) {
+    @include center(#{p($height)});
+}
+
+@mixin c2($height, $fontSize: 20, $color: #fff) {
+    @include center(#{p($height)});
+    font-size: p2r($fontSize);
+    color: $color;
+}
+
+
+@mixin text_shadow($color: #c64427, $width: p2r(2)) {
+    text-shadow: 0 $width $color, $width 0 $color, -$width 0 $color, 0 (-$width) $color;
+}

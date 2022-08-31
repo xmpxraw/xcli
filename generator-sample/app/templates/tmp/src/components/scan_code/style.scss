@@ -1,0 +1,58 @@
+@import "~@styles/funs";
+
+// 函数一个p就够了
+@function p($px) {
+  @return $px/75*1rem;
+}
+
+.page_bind_phone {
+  @include mask();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    @include center2(143);
+    font-size: p(24);
+    color: #6d3d1d;
+  }
+
+  .code {
+    width: p(230);
+    height: p(230);
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    
+    img {
+      width: 100%;
+      // height: 100%;
+    }
+
+  }
+  
+
+  .bind_content {
+    height: p(436);
+    width: p(546);
+    
+    background: url(./images/rate_detail_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+
+
+    .close {
+      cursor: pointer;
+      position: absolute;
+      right: p(36);
+      top: p(36);
+      background: url(./images/close.png) no-repeat;
+      background-size: 100% 100%;
+      display: inline-block;
+      width: p(48);
+      height: p(40);
+    }
+  }
+}

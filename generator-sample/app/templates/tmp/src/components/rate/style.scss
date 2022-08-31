@@ -1,0 +1,40 @@
+ @function p($px) {
+     @return $px/75*1rem;
+ }
+
+ $rateSize: p(32);
+
+ .el-rate {
+     outline: none;
+ }
+
+ .icon-rate-face-off {
+     background: url('./images/rate.png') no-repeat;
+     background-size: 100% 100%;
+ }
+
+ .el-icon-star-on {
+     background: url('./images/rate_active.png') no-repeat;
+     background-size: 100% 100%;
+ }
+
+ .el-rate__item {
+     margin-right: p(30);
+     width: $rateSize;
+     height: $rateSize;
+     display: inline-block;
+
+     i {
+         width: 100%;
+         height: 100%;
+         display: inline-block;
+     }
+ }
+
+ .el-rate__icon {
+     transition: all 60ms;
+
+     &.transition_big {
+         transform: scale(1.5);
+     }
+ }

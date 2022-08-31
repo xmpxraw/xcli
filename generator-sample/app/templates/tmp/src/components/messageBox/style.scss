@@ -1,0 +1,196 @@
+@import "~@styles/funs";
+
+// 函数一个p就够了
+@function p($px) {
+  @return $px/75*1rem;
+}
+
+.page_base_dialog {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba($color: #000000, $alpha: .8);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box {
+    width: p(550);
+    min-height: p(258);
+    max-height: p(468);
+    border-radius: 4px;
+    background: url(./images/dialog_bg.png) no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 p(38);
+    position: relative;
+    padding-bottom: p(30);
+  }
+
+  .dialog_close {
+    background: url(./images/close.png) no-repeat;
+    background-size: 100% 100%;
+    width: p(48);
+    height: p(40);
+    display: inline-block;
+    position: absolute;
+    right: p(22);
+    top: p(18);
+    cursor: pointer;
+  }
+
+
+  .box-title {
+    background: url(./images/dialog_title.png) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: p(46);
+    line-height: p(46);
+    font-size: p(34);
+    text-align: center;
+    color: #573722;
+    margin-top: p(28);
+    padding: 0 p(30);
+    box-sizing: border-box;
+    display: inline-block;
+
+    .box-text {
+      width: 100%;
+      @include diandiandian(1);
+      display: inline-block;
+    }
+  }
+
+  .box-scroll {
+    flex: 1;
+    width: 100%;
+    overflow-y: scroll;
+    @include scrollbar();
+    margin-top: p(20);
+    margin-bottom: p(20);
+
+    .box-content {
+      font-size: p(22);
+      color: #6d3d1d;
+      text-align: center;
+    }
+
+    .showList {
+      margin-top: p(15);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .listItem {
+        width: p(150);
+        height: p(160);
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+
+        .item_bg {
+          width: p(122);
+          height: p(122);
+          background: url(./images/dialog_item.png) no-repeat;
+          background-size: 100% 100%;
+          display: inline-flex;
+          box-sizing: border-box;
+          padding: p(5);
+          color: #623f29;
+
+          .item_img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .item_desc {
+          color: #623f29;
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          font-size: p(24);
+          @include diandiandian(1);
+        }
+      }
+    }
+
+    .dialog_desc {
+      font-size: p(22);
+      color: #6d3d1d;
+      text-align: center;
+      height: p(120);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .inputCheckBox {
+      width: 100%;
+      font-size: p(22);
+      color: #6d3d1d;
+      margin-top: p(10);
+      cursor: pointer;
+      .checked {
+        width: p(20);
+        height: p(20);
+        border-radius: 50%;
+        border: 1px solid #5f4f41;
+        transition: all .5s;
+        &:checked {
+          background: url(./images/checked.png) no-repeat;
+          background-size: 100% 100%;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .box-btns {
+    display: flex;
+    width: 100%;
+    padding: 0 p(50);
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    &.justOne {
+      justify-content: center;
+    }
+
+    .btn-confirm,
+    .btn-cancel {
+      width: p(215);
+      height: p(60);
+      display: inline-block;
+      line-height: p(50);
+      text-align: center;
+      border: none;
+      outline: none;
+      color: #FFF;
+      background: url(./images/dialog_btn.png) no-repeat;
+      background-size: 100% 100%;
+      cursor: pointer;
+    }
+
+    .btn-confirm {
+      margin-left: p(20);
+    }
+
+    .btn-cancel {
+      
+    }
+  }
+
+
+}

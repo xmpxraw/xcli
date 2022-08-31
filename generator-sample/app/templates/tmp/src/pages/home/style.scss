@@ -1,0 +1,21 @@
+.page_home {
+    background: teal;
+    height: p(900);
+    color: #fff;
+    @include scrollbar();
+    overflow-y: scroll;
+    .item {
+        margin: p(30) 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .white {
+        color: #fff;
+    }
+    .no_msg_wrapper {
+        /deep/ .tip_text {
+            color: #fff !important;
+        }
+    }
+}

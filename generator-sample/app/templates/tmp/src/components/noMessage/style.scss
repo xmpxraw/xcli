@@ -1,0 +1,19 @@
+@import "~@styles/funs";
+// 函数一个p就够了
+@function p($px) {
+  @return $px/75*1rem;
+}
+
+.page_no_message {
+  .no_message_icon {
+    width: p(232);
+    height: p(156);
+    object-fit: contain;
+    margin-left: p(-38); 
+  }
+  .tip_text {
+    color: #f1cc9f;
+    margin-top: p(30);
+    font-size: p(28);
+  }
+}

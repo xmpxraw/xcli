@@ -1,0 +1,94 @@
+.ui-wrap {
+    @include scrollbar();
+
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+
+    font-size: p2r(24);
+    text-align: center;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .kv {
+        width: 100%;
+        height: p2r(200);
+
+        font-size: p2r(35);
+        line-height: p2r(200);
+        font-weight: bold;
+    }
+
+    .icon-rule {
+        position: fixed;
+        top: p2r(20);
+        left: p2r(0);
+
+        background: rgba(0, 0, 0, .6);
+        padding: p2r(10) p2r(20);
+        border-radius: 0 p2r(20) p2r(20) 0;
+
+        color: #fff;
+
+        cursor: pointer;
+    }
+
+    .icon-back {
+        @include bg("~@img/back.png");
+
+        position: fixed;
+        top: p2r(10);
+        left: p2r(10);
+
+        width: p2r(60);
+        height: p2r(60);
+
+        cursor: pointer;
+    }
+
+    .nav-field {
+        width: p2r(728);
+        height: p2r(60);
+        line-height: p2r(60);
+        text-align: center;
+        font-size: 0;
+
+        .nav {
+            @include bg('~@img/tab-bg-n.png');
+
+            display: inline-block;
+            width: p2r(219);
+            height: 100%;
+            margin-right: p2r(21);
+            font-size: p2r(30);
+            color: #fff;
+            vertical-align: top;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.router-link-exact-active {
+                @include bg('~@img/tab-bg-p.png');
+            }
+        }
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+
+        .routerView {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.scroller {
+    @include scrollbar();
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
