@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 generator-sample/node_modules/.bin/node-which.cmd
 generator-sample/
+=======
+generator-sample/node_modules/
+>>>>>>> 7fbca12c26f8812f8bd3ae2faf99c3b1ccce8a27
