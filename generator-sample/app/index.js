@@ -17,12 +17,3 @@ module.exports = class extends Generator {
     }
 }
 
-// develop change44
-
-// develop change22
-// develop change23
-
-
-// develop change1
-// develop change2
-// develop change3
